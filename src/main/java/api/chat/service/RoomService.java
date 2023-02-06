@@ -1,7 +1,6 @@
 package api.chat.service;
 
 import api.chat.domain.Room;
-import api.chat.dto.RoomDto;
 import api.chat.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
