@@ -16,12 +16,12 @@ services:
     container_name: kafka
     image: wurstmeister/kafka:2.13-2.8.1
     environment:
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092 # 외부에서 받는 주소. 배포시 localhost 변경
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
-      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1 # 이부분도 docker host ip로 변경. 즉 배포된 주소.
       KAFKA_ADVERTISED_PORT: 9092
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CREATE_TOPICS: "kafka-chatting:1:1" #topic 실행할 때 설정해줌
+      KAFKA_CREATE_TOPICS: "kafka-chatting:1:1" #topic 실행할 때 설정해줌, 1:1은 각각 파티션, 레플리카 갯수
     ports:
       - "9092:9092"
     depends_on:

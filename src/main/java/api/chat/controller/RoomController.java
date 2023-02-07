@@ -18,7 +18,7 @@ public class RoomController {
 
     private final RoomService roomService;
 
-    // 채팅방 참여하기 - 굳이 필요한가..?
+    // 채팅방 참여하기
     @GetMapping("/{roomId}")
     public ResponseEntity<Room> enterRoom(@PathVariable Long roomId) {
         Room room = roomService.enterRoom(roomId);
